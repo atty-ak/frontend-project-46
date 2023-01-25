@@ -5,7 +5,9 @@ import _ from 'lodash';
 import parsers from './parsers.js';
 
 const getDiffInfo = (data1, data2) => {
-  const keys = _.union(Object.keys(data1), Object.keys(data2));
+  const key1 = Object.keys(data1);
+  const key2 = Object.keys(data2);
+  const keys = _.union(key1, key2);
   const result = keys.map((key) => {
     if (!_.has(data1, key)) {
       return { key, type: 'added', value: data2[key] };
@@ -32,11 +34,10 @@ const getDiffStyle = (difference) => {
       case 'unchanged':
         return `    ${diff.key}: ${diff.value}`;
       case 'changed':
-        return (`  - ${diff.key}: ${diff.oldValue} \n  + ${diff.key}: ${diff.newValue}`);
+        return (`  - ${diff.key}: ${diff.oldValue}\n  + ${diff.key}: ${diff.newValue}`);
       case 'added':
-        return `  + ${diff.key}: ${diff.value}`;
       default:
-        return null;
+        return `  + ${diff.key}: ${diff.value}`;
     }
   });
   return `{\n${result.join('\n')}\n}`;
