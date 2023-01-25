@@ -3,6 +3,7 @@
   "type": "module",
   "version": "1.0.0",
   "description": "Differences between data structures",
+  "main": "src/index.js",
   "bin": {
     "gendiff": "bin/gendiff.js"
   },
@@ -20,7 +21,8 @@
   },
   "homepage": "https://github.com/Atty-code/frontend-project-46#readme",
   "dependencies": {
-    "commander": "^10.0.0"
+    "commander": "^10.0.0",
+    "lodash": "^4.17.21"
   },
   "devDependencies": {
     "eslint": "^8.32.0",
