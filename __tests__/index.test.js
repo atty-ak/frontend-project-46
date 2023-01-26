@@ -16,8 +16,14 @@ beforeEach(() => {
   result = readFile('expected_file.txt');
 });
 
-test('main flow', () => {
-  const file1 = getFixturePath('file1.json');
-  const file2 = getFixturePath('file2.json');
+test('json format', () => {
+  const file1 = getFixturePath('filepath1.json');
+  const file2 = getFixturePath('filepath2.json');
+  expect(genDiff(file1, file2)).toEqual(result);
+});
+
+test('yml format', () => {
+  const file1 = getFixturePath('filepath1.yml');
+  const file2 = getFixturePath('filepath2.yml');
   expect(genDiff(file1, file2)).toEqual(result);
 });
