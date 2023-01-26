@@ -4,5 +4,8 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/2059a93e05ba25d7d8fd/maintainability)](https://codeclimate.com/github/Atty-code/frontend-project-46/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/2059a93e05ba25d7d8fd/test_coverage)](https://codeclimate.com/github/Atty-code/frontend-project-46/test_coverage)
 
-## Demo
+## Demo: json format
 [![asciicast](https://asciinema.org/a/Afrea5BmMEf6jcoVruJ53xO3P.svg)](https://asciinema.org/a/Afrea5BmMEf6jcoVruJ53xO3P)
+
+## Demo: yaml format
+[![asciicast](https://asciinema.org/a/N23iCYoAkemq3JV0N5tVctR7m.svg)](https://asciinema.org/a/N23iCYoAkemq3JV0N5tVctR7m)
