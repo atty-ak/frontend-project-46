@@ -10,5 +10,5 @@
 ## Demo: yaml format
 [![asciicast](https://asciinema.org/a/N23iCYoAkemq3JV0N5tVctR7m.svg)](https://asciinema.org/a/N23iCYoAkemq3JV0N5tVctR7m)
 
-## Demo: json format nested
+## Demo: nested
 [![asciicast](https://asciinema.org/a/555352.svg)](https://asciinema.org/a/555352)
