@@ -12,3 +12,6 @@
 
 ## Demo: nested
 [![asciicast](https://asciinema.org/a/555352.svg)](https://asciinema.org/a/555352)
+
+## Demo: plain
+[![asciicast](https://asciinema.org/a/555535.svg)](https://asciinema.org/a/555535)
