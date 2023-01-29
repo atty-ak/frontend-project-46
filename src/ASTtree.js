@@ -1,7 +1,7 @@
 import _ from 'lodash';
 
-const buildASTtree = (data1, data2) => {
-  const keys = _.sortBy(_.union(Object.keys(data1), Object.keys(data2)));
+const buildTree = (data1, data2) => {
+  const keys = _.sortBy(_.union(_.keys(data1), _.keys(data2)));
   const tree = keys.map((key) => {
     const value1 = data1[key];
     const value2 = data2[key];
@@ -14,7 +14,7 @@ const buildASTtree = (data1, data2) => {
     }
     if (_.has(data1, key) && _.has(data2, key)) {
       if (_.isObject(value1) && _.isObject(value2)) {
-        return { key, type: 'nested', children: buildASTtree(value1, value2) };
+        return { key, type: 'nested', children: buildTree(value1, value2) };
       }
       if (value1 === value2) return { key, type: 'unchanged', value: value1 };
       if (value1 !== value2) {
@@ -29,4 +29,4 @@ const buildASTtree = (data1, data2) => {
   return tree;
 };
 
-export default buildASTtree;
+export default buildTree;
