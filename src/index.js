@@ -3,7 +3,7 @@ import fs from 'fs';
 import path from 'path';
 import parsers from './parsers.js';
 import buildTree from './ASTtree.js';
-import format from './formatters/formats.js';
+import getFormat from './formatters/formats.js';
 
 const getPathFile = (filepath) => path.resolve(process.cwd(), filepath);
 
@@ -17,7 +17,7 @@ const genDiff = (filepath1, filepath2, formats = 'stylish') => {
   const obj1 = parsers(file1Data, file1Ext);
   const obj2 = parsers(file2Data, file2Ext);
   const difference = buildTree(obj1, obj2);
-  return format(difference, formats);
+  return getFormat(difference, formats);
 };
 
 export default genDiff;
