@@ -23,7 +23,7 @@ const stringify = (value, depth, replacer = ' ', spacesCount = 1) => {
   return iter(value, depth);
 };
 
-const stylish = (tree) => {
+const stylish = (data) => {
   const iter = (currentValue, depth, spacesCount = 1) => {
     const replacer = '    ';
     const indentSize = depth * spacesCount;
@@ -55,7 +55,7 @@ const stylish = (tree) => {
       `${bracketIndent}}`,
     ].join('\n');
   };
-  return iter(tree, 1);
+  return iter(data, 1);
 };
 
 export default stylish;

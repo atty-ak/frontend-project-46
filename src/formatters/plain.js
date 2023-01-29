@@ -6,7 +6,7 @@ const stringify = (value) => {
   return value;
 };
 
-const plain = (tree) => {
+const plain = (data) => {
   const iter = (currentValue, ancestry) => {
     const lines = currentValue.flatMap((node) => {
       const {
@@ -30,7 +30,7 @@ const plain = (tree) => {
     });
     return lines.filter((item) => item !== null).join('\n');
   };
-  return iter(tree, '');
+  return iter(data, '');
 };
 
 export default plain;
