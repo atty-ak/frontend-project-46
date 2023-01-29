@@ -15,3 +15,6 @@
 
 ## Demo: plain
 [![asciicast](https://asciinema.org/a/555535.svg)](https://asciinema.org/a/555535)
+
+## Demo: json
+[![asciicast](https://asciinema.org/a/555547.svg)](https://asciinema.org/a/555547)
