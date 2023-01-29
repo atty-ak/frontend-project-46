@@ -23,7 +23,7 @@ const buildTree = (data1, data2) => {
         };
       }
     }
-    return tree;
+    return key;
   });
 
   return tree;
