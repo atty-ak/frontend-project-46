@@ -46,7 +46,7 @@ const stylish = (tree) => {
         case 'changed':
           return `${currentIndent.slice(2)}- ${key}: ${stringify(oldValue, depth + 1, replacer)}\n${currentIndent.slice(2)}+ ${key}: ${stringify(newValue, depth + 1, replacer)}`;
         default:
-          return 'Something go wrong';
+          throw new Error(`Unknown type ${type}`);
       }
     });
     return [
