@@ -13,8 +13,10 @@ const readFile = (filename) => fs.readFileSync(getFixturePath(filename), 'utf-8'
 const tests = [
   ['file1.json', 'file2.json', 'expected_nested.txt', 'stylish'],
   ['file1.yml', 'file2.yml', 'expected_nested.txt', 'stylish'],
+  ['file1.json', 'file2.json', 'expected_plain.txt', 'plain'],
   ['file1.yml', 'file2.yml', 'expected_plain.txt', 'plain'],
-  ['file1.yml', 'file2.yml', 'expected_plain.txt', 'plain'],
+  ['file1.json', 'file2.json', 'expected_file.json', 'json'],
+  ['file1.yml', 'file2.yml', 'expected_file.json', 'json'],
 ];
 
 describe('check for correct diff', () => {
