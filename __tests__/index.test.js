@@ -11,20 +11,25 @@ const getFixturePath = (filename) => path.join(__dirname, '..', '__fixtures__', 
 const readFile = (filename) => fs.readFileSync(getFixturePath(filename), 'utf-8');
 
 const tests = [
-  ['file1.json', 'file2.json', 'expected_nested.txt', 'stylish'],
-  ['file1.yml', 'file2.yml', 'expected_nested.txt', 'stylish'],
-  ['file1.json', 'file2.json', 'expected_plain.txt', 'plain'],
-  ['file1.yml', 'file2.yml', 'expected_plain.txt', 'plain'],
-  ['file1.json', 'file2.json', 'expected_file.json', 'json'],
-  ['file1.yml', 'file2.yml', 'expected_file.json', 'json'],
+  ['json', 'json'],
+  ['yml', 'yml'],
 ];
 
 describe('check for correct diff', () => {
-  test.each(tests)('Compare files', (firstData, secondData, expectedData, format) => {
-    const firstFile = getFixturePath(firstData);
-    const secondFile = getFixturePath(secondData);
-    const getResult = readFile(expectedData);
-    const result = genDiff(firstFile, secondFile, format);
-    expect(result).toEqual(getResult);
+  const expectedStylish = readFile('expected_nested.txt');
+  const expectedPlain = readFile('expected_plain.txt');
+  const expectedJson = readFile('expected_file.json');
+  test.each(tests)('Compare files', (extension1, extension2) => {
+    const file1 = getFixturePath(`file1.${extension1}`);
+    const file2 = getFixturePath(`file2.${extension2}`);
+    expect(genDiff(file1, file2, 'stylish')).toEqual(expectedStylish);
+    expect(genDiff(file1, file2, 'plain')).toEqual(expectedPlain);
+    expect(genDiff(file1, file2, 'json')).toEqual(expectedJson);
+    expect(genDiff(file1, file2)).toEqual(expectedStylish);
   });
+});
+
+test('unknown format', () => {
+  expect(() => genDiff('__fixtures__/file1.json', '__fixtures__/file2.json', 'unknownFormat'))
+    .toThrow('Format not supported: unknownFormat');
 });
