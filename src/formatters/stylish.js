@@ -27,11 +27,10 @@ const replacer = '    ';
 const spacesCount = 1;
 
 const getIndent = (depth) => replacer.repeat(depth * spacesCount);
+const getBracketIndent = (depth) => replacer.repeat(depth * spacesCount - spacesCount);
 
 const stylish = (data) => {
   const iter = (currentValue, depth) => {
-    const bracketIndent = replacer.repeat(depth * spacesCount - spacesCount);
-
     const lines = currentValue.map((node) => {
       const {
         key, type, value, children, oldValue, newValue,
@@ -52,7 +51,7 @@ const stylish = (data) => {
     return [
       '{',
       ...lines,
-      `${bracketIndent}}`,
+      `${getBracketIndent(depth)}}`,
     ].join('\n');
   };
   return iter(data, 1);
