@@ -41,12 +41,10 @@ const stylish = (data) => {
           return `${currentIndent.slice(2)}- ${key}: ${stringify(value, depth + 1, replacer)}`;
         case 'added':
           return `${currentIndent.slice(2)}+ ${key}: ${stringify(value, depth + 1, replacer)}`;
-        case 'unchanged':
-          return `${currentIndent}${key}: ${value}`;
         case 'changed':
           return `${currentIndent.slice(2)}- ${key}: ${stringify(oldValue, depth + 1, replacer)}\n${currentIndent.slice(2)}+ ${key}: ${stringify(newValue, depth + 1, replacer)}`;
         default:
-          throw new Error(`Unknown type ${type}`);
+          return `${currentIndent}${key}: ${value}`;
       }
     });
     return [
