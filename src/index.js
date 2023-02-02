@@ -1,7 +1,7 @@
 import process from 'process';
 import fs from 'fs';
 import path from 'path';
-import parsers from './parsers.js';
+import getParsedContent from './parsers.js';
 import buildTree from './ASTtree.js';
 import getFormat from './formatters/formats.js';
 
@@ -14,8 +14,8 @@ const genDiff = (filepath1, filepath2, formats = 'stylish') => {
   const file2Data = fs.readFileSync(getPathFile(filepath2));
   const file1Ext = getFormatName(filepath1);
   const file2Ext = getFormatName(filepath2);
-  const obj1 = parsers(file1Data, file1Ext);
-  const obj2 = parsers(file2Data, file2Ext);
+  const obj1 = getParsedContent(file1Data, file1Ext);
+  const obj2 = getParsedContent(file2Data, file2Ext);
   const difference = buildTree(obj1, obj2);
   return getFormat(difference, formats);
 };
