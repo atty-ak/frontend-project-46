@@ -22,10 +22,8 @@ const plain = (data) => {
           return `Property '${ancestry}${key}' was added with value: ${stringify(value)}`;
         case 'changed':
           return `Property '${ancestry}${key}' was updated. From ${stringify(oldValue)} to ${stringify(newValue)}`;
-        case 'unchanged':
-          return null;
         default:
-          throw new Error(`Unknown type ${type}`);
+          return null;
       }
     });
     return lines.filter((item) => item !== null).join('\n');
