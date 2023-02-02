@@ -24,8 +24,7 @@ const stringify = (value, depth, replacer = ' ', spacesCount = 1) => {
 };
 
 const stylish = (data) => {
-  const iter = (currentValue, depth, spacesCount = 1) => {
-    const replacer = '    ';
+  const iter = (currentValue, depth, replacer = '    ', spacesCount = 1) => {
     const indentSize = depth * spacesCount;
     const currentIndent = replacer.repeat(indentSize);
     const bracketIndent = replacer.repeat(indentSize - spacesCount);
