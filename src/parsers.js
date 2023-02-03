@@ -1,9 +1,14 @@
 import yaml from 'js-yaml';
 
-const parsers = {
-  json: JSON.parse,
-  yml: yaml.load,
-  yaml: yaml.load,
+export default (data, ext) => {
+  switch (ext) {
+    case 'json':
+      return JSON.parse(data);
+    case 'yml':
+      return yaml.load(data);
+    case 'yaml':
+      return yaml.load(data);
+    default:
+      throw new Error(`Extension not supported: ${ext}`);
+  }
 };
-
-export default (data, format) => parsers[format](data);
